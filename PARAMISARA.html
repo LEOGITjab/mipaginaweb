@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> FELIZZZ EIT MESESSS</title>
+    <link rel="stylesheet" href="paginaresp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Matemasie&family=Permanent+Marker&display=swap" rel="stylesheet">
+    
+</head>
+<script>
+    // Función para crear un nuevo elemento de mariposa, flor o rosa
+    function crearElemento() {
+        const contenedor = document.querySelector('.container');
+        const nuevoElemento = document.createElement('div');
+        nuevoElemento.classList.add('elemento');
+        
+        const img = document.createElement('img');
+        const tipo = Math.floor(Math.random() * 5); // Escoge entre mariposa, rosa, o flor
+
+        switch(tipo) {
+            case 0:
+                img.src = 'mariposacrack.png';
+                img.alt = 'Mariposa';
+                break;
+            case 1:
+                img.src = '../muchoscoraazonnes.png';
+                img.alt = 'corax';
+                break;
+            case 2:
+                img.src = 'corazonnn.png';
+                img.alt = 'Flor';
+                break;
+            case 3:
+                img.src = 'rosasdf.png';
+                img.alt = 'otra rosa';
+                break;
+            case 4:
+                img.src = 'corazonnrosa.png';
+                img.alt = 'nods';
+                break;
+
+        }
+
+        img.style.width = Math.floor(Math.random() * 30 + 80) + 'px'; // Tamaño aleatorio
+        nuevoElemento.style.left = Math.floor(Math.random() * 100) + 'vw'; // Posición aleatoria
+        nuevoElemento.style.animationDuration = Math.floor(Math.random() * 5 + 10) + 's'; // Duración aleatoria
+
+        nuevoElemento.appendChild(img);
+        contenedor.appendChild(nuevoElemento);
+
+        // Remover el elemento cuando termine la animación
+        setTimeout(() => {
+            contenedor.removeChild(nuevoElemento);
+        }, 10000); // 10 segundos
+    }
+
+    // Crear un nuevo elemento cada segundo
+    setInterval(crearElemento, 350);
+</script>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(to right, rgb(255, 175, 188), rgb(169, 216, 232));
+    font-family: "Permanent Marker", cursive;
+    color: rgb(247, 71, 136);
+    position: relative;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.elemento {
+    position: absolute;
+    bottom: -100px; /* Comienza fuera de la pantalla */
+    left: 50%;
+    transform: translateX(-50%);
+    animation: moverArriba 5s linear infinite;
+    
+}
+
+.elemento img {
+    width: 0px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: auto;
+}
+
+/* Animación para mover los elementos hacia arriba */
+@keyframes moverArriba {
+    0% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+
+.container-saludo {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+}
+
+.saludo {
+    width: 50%;
+    margin: 0 auto; /* Centrar el hijo horizontalmente */
+    padding-top: 200px;
+    text-align: center;
+    font-size: 30px;
+}
+
+</style>
+<body>
+    <div class="container-saludo">
+        <div class="saludo">FELIZZZ OCHOOO MESEESS SARAA</div>
+    </div>
+    <div class="container">
+        <!-- Puedes agregar tantas mariposas, flores o rosas como desees -->
+        <div class="elemento"><img src="mariposacrack.png" alt="Mariposa"></div>
+        <div class="elemento"><img src="../muchoscoraazonnes.png" alt="corax"></div>
+        <div class="elemento"><img src="corazonnn.png" alt="Flor"></div>
+        <div class="elemento"><img src="rosasdf.png" alt="otra rosa"></div>
+        <div class="elemento"><img src="corazonnrosa.png" alt="nods"></div>
+    </div>
+    <audio autoplay loop controls>
+        <source src="Rex Orange County - Pluto Projector (slowed  reverb) (violin part looped).mp3" type="audio/mp3" class="audio">
+    </audio>
+</body>
+</html>
